@@ -4,6 +4,22 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Divider from "@material-ui/core/Divider";
 import PropTypes from "prop-types";
 import React from "react";
+import SearchIcon from "@material-ui/icons/Search";
+import SaveIcon from "@material-ui/icons/Save";
+import { NavLink } from "react-router-dom";
+
+const drawerNavItems = [
+    {
+        text: "Search",
+        icon: <SearchIcon />,
+        href: "/"
+    },
+    {
+        text: "Saved",
+        icon: <SaveIcon />,
+        href: "/saved"
+    }
+];
 
 export function SideBar(props) {
     return (
@@ -27,8 +43,8 @@ export function SideBar(props) {
             </div>
             <Divider />
             <List>
-                {props.navItems.map(navItem => (
-                    <ListItem button key={navItem.text}>
+                {drawerNavItems.map(navItem => (
+                    <ListItem button component={NavLink} exact to={navItem.href} key={navItem.text}>
                         <ListItemIcon>{navItem.icon}</ListItemIcon>
                         <ListItemText primary={navItem.text} />
                     </ListItem>
@@ -41,8 +57,7 @@ export function SideBar(props) {
 SideBar.propTypes = {
     classes: PropTypes.any,
     open: PropTypes.bool,
-    onClick: PropTypes.func,
-    navItems: PropTypes.array
+    onClick: PropTypes.func
 };
 
 export default SideBar;

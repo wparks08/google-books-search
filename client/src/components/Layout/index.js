@@ -6,16 +6,7 @@ import TopBar from "../TopBar";
 import SideBar from "../SideBar";
 import useStyles from "./styles";
 
-const drawerNavItems = [
-    {
-        text: "Search",
-        icon: <SearchIcon />
-    },
-    {
-        text: "Saved",
-        icon: <SaveIcon />
-    }
-];
+
 
 function Layout(props) {
     const classes = useStyles();
@@ -32,7 +23,7 @@ function Layout(props) {
     return (
         <div className={classes.root}>
             <TopBar classes={classes} open={open} onClick={handleDrawerOpen} />
-            <SideBar classes={classes} open={open} onClick={handleDrawerClose} navItems={drawerNavItems} />
+            <SideBar classes={classes} open={open} onClick={handleDrawerClose} />
             <main className={classes.content}>
                 <div className={classes.toolbar} />
                 {props.children}
