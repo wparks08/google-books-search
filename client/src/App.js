@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout";
+import Search from "./pages/Search";
+import Saved from "./pages/Saved";
 
 function App() {
     return (
@@ -9,12 +11,10 @@ function App() {
                 <Layout>
                     <Switch>
                         <Route exact path={"/"}>
-                            <h1>Search page.</h1>
-                            {/*<Search />*/}
+                            <Search />
                         </Route>
                         <Route exact path={"/saved"}>
-                            <h1>Saved books page.</h1>
-                            {/*<Search />*/}
+                            <Saved />
                         </Route>
                     </Switch>
                 </Layout>
