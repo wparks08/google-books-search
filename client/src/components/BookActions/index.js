@@ -1,13 +1,15 @@
 import Button from "@material-ui/core/Button";
 import * as PropTypes from "prop-types";
-import React from "react";
+import React, { useContext } from "react";
+import BookContext from "../../utils/BookContext";
 
-export function BookActions(props) {
+export function BookActions() {
+    const { link, saved } = useContext(BookContext);
+
     return (
         <>
-            {props.view ? <Button onClick={() => window.open(props.link, "_blank")}>View</Button> : ""}
-            {props.save ? <Button>Save</Button> : ""}
-            {props.delete ? <Button>Delete</Button> : ""}
+            {link ? <Button onClick={() => window.open(link, "_blank")}>View</Button> : ""}
+            {saved ? <Button>Delete</Button> : <Button>Save</Button>}
         </>
     );
 }

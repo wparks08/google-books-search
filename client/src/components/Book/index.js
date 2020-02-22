@@ -24,19 +24,15 @@ function Book(props) {
         <Grid container className={classes.root} spacing={3}>
             <Grid container item>
                 <Grid item md={10}>
-                    <BookInfo title={props.title} subtitle={props.subtitle} authors={props.authors} />
+                    <BookInfo />
                 </Grid>
                 <Grid item md={2} className={classes.actions}>
-                    {props.saved ? (
-                        <BookActions link={props.link} view delete />
-                    ) : (
-                        <BookActions link={props.link} view save />
-                    )}
+                    <BookActions />
                 </Grid>
             </Grid>
             <Grid container item justify={"center"}>
                 <Grid item md={2}>
-                    <BookImage src={props.image} alt={props.title} />
+                    <BookImage />
                 </Grid>
                 <Grid item md={10}>
                     <BookDescription description={props.description} />
@@ -47,7 +43,6 @@ function Book(props) {
 }
 
 Book.propTypes = {
-    classes: PropTypes.any,
     title: PropTypes.string,
     subtitle: PropTypes.string,
     authors: PropTypes.array,
