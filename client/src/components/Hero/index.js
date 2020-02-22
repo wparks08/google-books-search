@@ -1,6 +1,9 @@
 import React from "react";
-import { Grid, Paper, Typography } from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import PropTypes from "prop-types";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
     hero: {
@@ -10,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function Hero() {
+function Hero(props) {
     const classes = useStyles();
 
     return (
@@ -18,13 +21,18 @@ function Hero() {
             <Grid item xs={12}>
                 <Paper elevation={2} className={classes.hero}>
                     <Typography variant="h3" gutterBottom>
-                        Google Books Search
+                        {props.primary}
                     </Typography>
-                    <Typography variant="h5">Search for and save Books of interest</Typography>
+                    <Typography variant="h5">{props.secondary}</Typography>
                 </Paper>
             </Grid>
         </Grid>
     );
 }
+
+Hero.propTypes = {
+    primary: PropTypes.string,
+    secondary: PropTypes.string
+};
 
 export default Hero;

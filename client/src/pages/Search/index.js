@@ -1,24 +1,13 @@
 import React from "react";
 import Hero from "../../components/Hero";
-import { Container } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
 import BookSearch from "../../components/BookSearch";
 
 function Search() {
     return (
         <Container>
-            <Hero />
+            <Hero primary="Google Books Search" secondary="Search for and save Books of interest" />
             <BookSearch />
-            <div>Search bar</div>
-            <div>
-                Results
-                <div>
-                    book
-                    <div>Book info</div>
-                    <div>Book actions (right - view/save)</div>
-                    <div>Book picture</div>
-                    <div>Book description</div>
-                </div>
-            </div>
         </Container>
     );
 }
