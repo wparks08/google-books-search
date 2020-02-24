@@ -1,16 +1,12 @@
 const API = {
     search: query => {
         return new Promise((resolve, reject) => {
-            fetch(
-                "https://www.googleapis.com/books/v1/volumes?q=" +
-                    query +
-                    "&key="
-            )
+            fetch("/api/search/google?q=" + query)
                 .then(response => {
                     return response.json();
                 })
-                .then(result => {
-                    resolve(result.items);
+                .then(json => {
+                    resolve(json);
                 })
                 .catch(err => {
                     reject(err);

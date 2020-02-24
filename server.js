@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -17,9 +18,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+require("./routes/apiRoutes")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs
+
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });

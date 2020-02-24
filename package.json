@@ -27,6 +27,8 @@
     "prettier": "^1.19.1"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "latest",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.1"
