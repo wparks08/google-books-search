@@ -1,34 +1,25 @@
 const db = require("../models");
 
+const handleResult = (query, res) => {
+    query
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+};
+
 module.exports = {
     findAll: (req, res) => {
-        db.Book.find({})
-            .then(result => {
-                res.json(result);
-            })
-            .catch(err => {
-                res.json(err);
-            });
+        handleResult(db.Book.find({}), res);
     },
 
     save: (req, res) => {
-        db.Book.create(req.body)
-            .then(result => {
-                res.json(result);
-            })
-            .catch(err => {
-                res.json(err);
-            });
+        handleResult(db.Book.create(req.body), res);
     },
 
     delete: (req, res) => {
-        console.log("delete");
-        db.Book.findOneAndDelete({ _id: req.params.id })
-            .then(result => {
-                res.json(result);
-            })
-            .catch(err => {
-                res.json(err);
-            });
+        handleResult(db.Book.findOneAndDelete({ _id: req.params.id }), res);
     }
 };

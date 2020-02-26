@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Book from "../Book";
 
 function BookSearchResults(props) {
-    return props.totalItems > 1 ? (
+    return props.totalItems > 0 ? (
         <>
             <Typography variant="caption">Results: {props.totalItems}</Typography>
             {props.books.map(book => {

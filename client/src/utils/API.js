@@ -11,22 +11,7 @@ const API = {
                         books: []
                     };
                     if (json.items) {
-                        data.books = json.items.map(book => {
-                            return {
-                                title: book.volumeInfo.title,
-                                subtitle: book.volumeInfo.subtitle,
-                                authors: book.volumeInfo.authors,
-                                image: book.volumeInfo.imageLinks
-                                    ? book.volumeInfo.imageLinks.thumbnail
-                                    : "https://via.placeholder.com/128?text=No+Image",
-                                description: book.volumeInfo.description,
-                                link: book.volumeInfo.previewLink,
-                                saved: false,
-                                toggleSaved: function() {
-                                    this.saved = !this.saved;
-                                }
-                            };
-                        });
+                        data.books = json.items.map(item => mapItemToBook(item));
                     }
                     resolve(data);
                 })
@@ -76,6 +61,20 @@ const handleResponse = (response, resolve, reject) => {
         .catch(err => {
             reject(err);
         });
+};
+
+const mapItemToBook = item => {
+    return {
+        title: item.volumeInfo.title,
+        subtitle: item.volumeInfo.subtitle,
+        authors: item.volumeInfo.authors,
+        image: item.volumeInfo.imageLinks
+            ? item.volumeInfo.imageLinks.thumbnail
+            : "https://via.placeholder.com/128?text=No+Image",
+        description: item.volumeInfo.description,
+        link: item.volumeInfo.previewLink,
+        saved: false
+    };
 };
 
 export default API;

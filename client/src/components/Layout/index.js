@@ -4,8 +4,6 @@ import TopBar from "../TopBar";
 import SideBar from "../SideBar";
 import useStyles from "./styles";
 
-
-
 function Layout(props) {
     const classes = useStyles();
     const [open, setOpen] = useState(false);

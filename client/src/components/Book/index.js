@@ -46,7 +46,7 @@ function Book(props) {
                 setBook({ ...book, id: response._id });
             })
             .catch(err => {
-                //TODO popup error
+                console.log(err);
             });
     };
 
@@ -56,7 +56,7 @@ function Book(props) {
                 setSaved(false);
             })
             .catch(err => {
-                //TODO popup error
+                console.log(err);
             });
     };
 
@@ -115,8 +115,7 @@ Book.propTypes = {
     image: PropTypes.string,
     description: PropTypes.string,
     link: PropTypes.string,
-    saved: PropTypes.bool,
-    book: PropTypes.object
+    saved: PropTypes.bool
 };
 
 export default Book;

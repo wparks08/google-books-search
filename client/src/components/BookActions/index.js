@@ -6,7 +6,11 @@ export function BookActions(props) {
     return (
         <>
             {props.link ? <Button onClick={() => window.open(props.link, "_blank")}>View</Button> : ""}
-            {props.saved ? <Button onClick={props.deleteBook}>Delete</Button> : <Button onClick={props.saveBook}>Save</Button>}
+            {props.saved ? (
+                <Button onClick={props.deleteBook}>Delete</Button>
+            ) : (
+                <Button onClick={props.saveBook}>Save</Button>
+            )}
         </>
     );
 }
