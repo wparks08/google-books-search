@@ -1,9 +1,13 @@
 const db = require("../models");
+const io = require("../services/socketIO");
 
-const handleResult = (query, res) => {
+const handleResult = (query, res, callback) => {
     query
         .then(result => {
             res.json(result);
+            if (callback) {
+                callback();
+            }
         })
         .catch(err => {
             res.json(err);
@@ -16,7 +20,9 @@ module.exports = {
     },
 
     save: (req, res) => {
-        handleResult(db.Book.create(req.body), res);
+        handleResult(db.Book.create(req.body), res, () => {
+            io.emit("New book saved: " + req.body.title);
+        });
     },
 
     delete: (req, res) => {

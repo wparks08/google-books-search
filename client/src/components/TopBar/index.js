@@ -3,8 +3,18 @@ import clsx from "clsx";
 import MenuIcon from "@material-ui/icons/Menu";
 import PropTypes from "prop-types";
 import React from "react";
+import { Notification } from "../Notification";
+import { makeStyles } from "@material-ui/core/styles";
+
+export const useStyles = makeStyles(theme => ({
+    grow: {
+        flexGrow: 1
+    }
+}));
 
 function TopBar(props) {
+    const classes = useStyles();
+
     return (
         <AppBar
             position="fixed"
@@ -27,6 +37,8 @@ function TopBar(props) {
                 <Typography variant="h6" noWrap>
                     Google Books Search
                 </Typography>
+                <div className={classes.grow} />
+                <Notification />
             </Toolbar>
         </AppBar>
     );
