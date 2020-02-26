@@ -26,8 +26,13 @@ function BookSearch() {
         search();
     };
 
-    const handleChange = (event, value) => {
+    const handlePaginationChange = (event, value) => {
         setPage(value);
+    };
+
+    const handleMaxChange = event => {
+        const { value } = event.target;
+        setMax(value);
     };
 
     const search = () => {
@@ -44,8 +49,19 @@ function BookSearch() {
     return (
         <Grid container>
             <Grid item xs={12}>
-                <BookSearchForm query={query} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
-                <BookSearchResults totalItems={totalItems} max={max} books={results} handleChange={handleChange} />
+                <BookSearchForm
+                    query={query}
+                    max={max}
+                    handleInputChange={handleInputChange}
+                    handleSubmit={handleSubmit}
+                    handleMaxChange={handleMaxChange}
+                />
+                <BookSearchResults
+                    totalItems={totalItems}
+                    max={max}
+                    books={results}
+                    handlePaginationChange={handlePaginationChange}
+                />
             </Grid>
         </Grid>
     );

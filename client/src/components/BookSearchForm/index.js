@@ -9,6 +9,8 @@ import Grid from "@material-ui/core/Grid";
 import FormGroup from "@material-ui/core/FormGroup";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
+import { Select } from "@material-ui/core";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const useStyles = makeStyles(theme => ({
     formWrapper: {
@@ -35,8 +37,8 @@ function BookSearchForm(props) {
                     <form autoComplete="off" className={classes.form} onSubmit={props.handleSubmit}>
                         <FormGroup>
                             <FormControl fullWidth>
-                                <Grid container alignItems="center" justify="center" alignContent="center">
-                                    <Grid item xs={11}>
+                                <Grid container>
+                                    <Grid item xs={10}>
                                         <InputLabel htmlFor="search-input">Search...</InputLabel>
                                         <Input
                                             id="search-input"
@@ -50,8 +52,20 @@ function BookSearchForm(props) {
                                             <SearchIcon />
                                         </IconButton>
                                     </Grid>
+                                    <Grid item xs={1}>
+                                        <FormControl>
+                                            <InputLabel id="max-results">Max</InputLabel>
+                                            <Select labelId="max-results" id="max-results-select" value={props.max} onChange={props.handleMaxChange}>
+                                                <MenuItem value={10}>10</MenuItem>
+                                                <MenuItem value={20}>20</MenuItem>
+                                                <MenuItem value={30}>30</MenuItem>
+                                                <MenuItem value={40}>40</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </Grid>
                                 </Grid>
                             </FormControl>
+
                         </FormGroup>
                     </form>
                 </Paper>
@@ -62,8 +76,10 @@ function BookSearchForm(props) {
 
 BookSearchForm.propTypes = {
     query: PropTypes.string,
+    max: PropTypes.number,
     handleInputChange: PropTypes.func,
-    handleSubmit: PropTypes.func
+    handleSubmit: PropTypes.func,
+    handleMaxChange: PropTypes.func
 };
 
 export default BookSearchForm;

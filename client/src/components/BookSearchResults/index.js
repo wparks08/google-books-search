@@ -22,7 +22,7 @@ function BookSearchResults(props) {
                     />
                 );
             })}
-            <Pagination count={Math.floor(props.totalItems / props.max)} onChange={props.handleChange} />
+            <Pagination count={Math.floor(props.totalItems / props.max)} onChange={props.handlePaginationChange} />
         </>
     ) : (
         <Typography variant="caption">(No results)</Typography>
@@ -32,7 +32,8 @@ function BookSearchResults(props) {
 BookSearchResults.propTypes = {
     books: PropTypes.array,
     totalItems: PropTypes.number,
-    max: PropTypes.number
+    max: PropTypes.number,
+    handlePaginationChange: PropTypes.func
 };
 
 export default BookSearchResults;
