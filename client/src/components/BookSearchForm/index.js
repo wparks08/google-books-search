@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import { Select } from "@material-ui/core";
 import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
 
 const useStyles = makeStyles(theme => ({
     formWrapper: {
@@ -53,19 +54,18 @@ function BookSearchForm(props) {
                                         </IconButton>
                                     </Grid>
                                     <Grid item xs={1}>
-                                        <FormControl>
-                                            <InputLabel id="max-results">Max</InputLabel>
-                                            <Select labelId="max-results" id="max-results-select" value={props.max} onChange={props.handleMaxChange}>
+                                        <FormControl fullWidth>
+                                            <Select value={props.max} onChange={props.handleMaxChange}>
                                                 <MenuItem value={10}>10</MenuItem>
                                                 <MenuItem value={20}>20</MenuItem>
                                                 <MenuItem value={30}>30</MenuItem>
                                                 <MenuItem value={40}>40</MenuItem>
                                             </Select>
+                                            <FormHelperText>Results per page</FormHelperText>
                                         </FormControl>
                                     </Grid>
                                 </Grid>
                             </FormControl>
-
                         </FormGroup>
                     </form>
                 </Paper>
