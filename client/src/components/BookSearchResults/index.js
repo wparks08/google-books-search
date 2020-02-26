@@ -1,36 +1,38 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
+import Pagination from "@material-ui/lab/Pagination";
 import PropTypes from "prop-types";
 import Book from "../Book";
-import BookContext from "../../utils/BookContext";
 
 function BookSearchResults(props) {
-    return props.books.length > 1 ? (
-        props.books.map(book => {
-            let bookInfo = {
-                title: book.volumeInfo.title,
-                subtitle: book.volumeInfo.subtitle,
-                authors: book.volumeInfo.authors,
-                image: book.volumeInfo.imageLinks
-                    ? book.volumeInfo.imageLinks.thumbnail
-                    : "https://via.placeholder.com/128?text=No+Image",
-                description: book.volumeInfo.description,
-                link: book.volumeInfo.previewLink
-            };
-
-            return (
-                <BookContext.Provider value={bookInfo} key={book.id}>
-                    <Book />
-                </BookContext.Provider>
-            );
-        })
+    return props.totalItems > 1 ? (
+        <>
+            <Typography variant="caption">Results: {props.totalItems}</Typography>
+            {props.books.map(book => {
+                return (
+                    <Book
+                        title={book.title}
+                        subtitle={book.subtitle}
+                        authors={book.authors}
+                        image={book.image}
+                        description={book.description}
+                        link={book.link}
+                        saved={book.saved}
+                        key={book.link}
+                    />
+                );
+            })}
+            <Pagination count={Math.floor(props.totalItems / props.max)} onChange={props.handleChange} />
+        </>
     ) : (
         <Typography variant="caption">(No results)</Typography>
     );
 }
 
 BookSearchResults.propTypes = {
-    books: PropTypes.array
+    books: PropTypes.array,
+    totalItems: PropTypes.number,
+    max: PropTypes.number
 };
 
 export default BookSearchResults;

@@ -1,16 +1,13 @@
 import Typography from "@material-ui/core/Typography";
 import * as PropTypes from "prop-types";
-import React, { useContext } from "react";
-import BookContext from "../../utils/BookContext";
+import React from "react";
 
-export function BookInfo() {
-    const { title, subtitle, authors } = useContext(BookContext);
-
+export function BookInfo(props) {
     return (
         <>
-            <Typography>{title}</Typography>
-            <Typography variant="body2">{subtitle}</Typography>
-            <Typography variant="caption">{authors ? authors.join(", ") : ""}</Typography>
+            <Typography>{props.title}</Typography>
+            <Typography variant="body2">{props.subtitle}</Typography>
+            <Typography variant="caption">{props.authors ? props.authors.join(", ") : ""}</Typography>
         </>
     );
 }
@@ -18,7 +15,7 @@ export function BookInfo() {
 BookInfo.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
-    authors: PropTypes.arrayOf(PropTypes.any)
+    authors: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default BookInfo;

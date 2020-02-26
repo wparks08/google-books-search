@@ -1,7 +1,6 @@
 import * as PropTypes from "prop-types";
-import React, { useContext } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import BookContext from "../../utils/BookContext";
 
 const useStyles = makeStyles(theme => ({
     flexCenter: {
@@ -10,15 +9,14 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export function BookImage() {
+export function BookImage(props) {
     const classes = useStyles();
-    const { image, title } = useContext(BookContext);
 
-    return <img src={image} alt={title} className={classes.flexCenter} />;
+    return <img src={props.image} alt={props.alt} className={classes.flexCenter} />;
 }
 
 BookImage.propTypes = {
-    src: PropTypes.string,
+    image: PropTypes.string,
     alt: PropTypes.string
 };
 

@@ -7,7 +7,8 @@ const BookContext = React.createContext({
     description: "",
     image: "",
     link: "",
-    saved: false
+    saved: false,
+    toggleSaved: () => {}
 });
 
 export default BookContext;

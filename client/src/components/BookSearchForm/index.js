@@ -41,7 +41,7 @@ function BookSearchForm(props) {
                                         <Input
                                             id="search-input"
                                             fullWidth
-                                            value={props.search}
+                                            value={props.query}
                                             onChange={props.handleInputChange}
                                         />
                                     </Grid>
@@ -61,7 +61,7 @@ function BookSearchForm(props) {
 }
 
 BookSearchForm.propTypes = {
-    search: PropTypes.string,
+    query: PropTypes.string,
     handleInputChange: PropTypes.func,
     handleSubmit: PropTypes.func
 };

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import SearchIcon from "@material-ui/icons/Search";
-import SaveIcon from "@material-ui/icons/Save";
 import PropTypes from "prop-types";
 import TopBar from "../TopBar";
 import SideBar from "../SideBar";
