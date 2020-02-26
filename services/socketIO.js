@@ -13,7 +13,7 @@ const init = app => {
     };
 };
 
-const emit = (message) => {
+const emit = message => {
     if (!httpServer || !io) {
         throw new Error("socketIO was not initialized.");
     }

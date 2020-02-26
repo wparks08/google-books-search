@@ -66,7 +66,6 @@ function Book(props) {
                 .then(savedBooks => {
                     savedBooks.forEach(savedBook => {
                         if (savedBook.link === book.link) {
-                            console.log(savedBook)
                             resolve({ saved: true, id: savedBook._id });
                         }
                     });

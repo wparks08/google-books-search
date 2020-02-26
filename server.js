@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googleBooksSearch";
 
 const app = express();
-const { httpServer, io } = require("./services/socketIO").init(app);
+const { httpServer } = require("./services/socketIO").init(app);
 
 mongoose.connect(MONGODB_URI);
 

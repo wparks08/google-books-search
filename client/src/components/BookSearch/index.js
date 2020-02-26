@@ -41,6 +41,8 @@ function BookSearch() {
         API.search(query, max, offset).then(data => {
             setResults(data.books);
             if (offset === 0) {
+                //Google books API is a little broken. Returns varying totalItems when paginating, and not in a predictable way.
+                //Setting totalItems only when we're on the first page of results as a not-very-good workaround.
                 setTotalItems(data.totalItems);
             }
         });
