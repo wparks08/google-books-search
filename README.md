@@ -1,29 +1,36 @@
-# Create React Express App
+# Google Books Search
 
-## About This Boilerplate
+ Google Books Search is an application built on the MERN stack. It allows users to
+ search for books from the Google Books API, and provides links to view the book, or save it
+ in the application's database.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Organization
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+The back-end of the application runs on Node.js, using the Express framework. Data is persisted to a MongoDB database.
 
-## Starting the app locally
+The front-end is built using React and the Material-UI library.
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+Data is communicated between the front-end and back-end via API routes, making the front-end and back-end independent from each other.
 
-```
-npm install
-```
+## Accessing the App
 
-This should install node modules within the server and the client folder.
+Google Books Search is currently deployed to Heroku.
 
-After both installations complete, run the following command in your terminal:
+You may access the app here: [Google Books Search](https://vast-depths-78726.herokuapp.com/)
 
-```
-npm start
-```
+## Technologies Used
+<b>Built With</b>
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+- [Node.js](https://www.nodejs.org)
+    - [Express](https://www.npmjs.com/package/express)
+    - [Mongoose](https://www.npmjs.com/package/mongoose)
+    - [Axios](https://www.npmjs.com/package/axios)
+    - [socket.io](https://socket.io/)
+- [MongoDB](https://www.mongodb.com/)
+- [React](https://www.reactjs.org)
+    - [Material UI](https://material-ui.com/)
+    - [React Router DOM](https://www.npmjs.com/package/react-router-dom)
 
-## Deployment (Heroku)
+## Credits
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+- <b>Developed By: </b> Will Parks -- [wparks08](https://www.github.com/wparks08)
