@@ -41,7 +41,6 @@ function Book(props) {
     const saveBook = () => {
         API.save(book)
             .then(response => {
-                console.log(response);
                 setSaved(true);
                 setBook({ ...book, id: response._id });
             })

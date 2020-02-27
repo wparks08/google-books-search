@@ -37,7 +37,6 @@ function BookSearch() {
 
     const search = () => {
         let offset = page * max - max;
-        console.log("searching");
         API.search(query, max, offset).then(data => {
             setResults(data.books);
             if (offset === 0) {
