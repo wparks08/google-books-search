@@ -4,33 +4,69 @@
  search for books from the Google Books API, and provides links to view the book, or save it
  in the application's database.
 
-## Organization
+## Getting Started
 
-The back-end of the application runs on Node.js, using the Express framework. Data is persisted to a MongoDB database.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-The front-end is built using React and the Material-UI library.
+### Prerequisites
 
-Data is communicated between the front-end and back-end via API routes, making the front-end and back-end independent from each other.
+To begin, clone this repository to your local system.
 
-## Accessing the App
+```shell script
+git clone https://github.com/wparks08/google-books-search.git
+```
 
-Google Books Search is currently deployed to Heroku.
+You must also have the following installed on your system to run the application:
 
-You may access the app here: [Google Books Search](https://vast-depths-78726.herokuapp.com/)
+```text
+Node
+MongoDB
+```
 
-## Technologies Used
-<b>Built With</b>
+### Installing
 
-- [Node.js](https://www.nodejs.org)
-    - [Express](https://www.npmjs.com/package/express)
-    - [Mongoose](https://www.npmjs.com/package/mongoose)
-    - [Axios](https://www.npmjs.com/package/axios)
-    - [socket.io](https://socket.io/)
-- [MongoDB](https://www.mongodb.com/)
-- [React](https://www.reactjs.org)
-    - [Material UI](https://material-ui.com/)
-    - [React Router DOM](https://www.npmjs.com/package/react-router-dom)
+First, install node packages.
 
-## Credits
+```shell script
+npm i
+--or--
+npm install
+```
 
-- <b>Developed By: </b> Will Parks -- [wparks08](https://www.github.com/wparks08)
+You will also need a Google Books API key. Check the link [here](https://developers.google.com/books/docs/v1/getting_started) for instructions on how to get one.
+
+After you have the API key, create a file called `.env` in the root project folder. Enter your API key as follows:
+
+```dotenv
+GOOGLE_BOOKS_API_KEY=[your api key]
+```
+
+Once you have completed these steps, run `npm start` from the root directory. This will launch the Express server and React app concurrently.
+Go to `localhost:3000` to access the app.
+
+### Deployment
+
+This app is set up to be deployed on Heroku. Using the Heroku CLI, follow these steps to deploy:
+
+```shell script
+heroku create
+heroku addons:create mongolab
+git push heroku master
+```
+
+## Built With
+
+- [Node.js](https://www.nodejs.org) - JavaScript Runtime
+- [NPM](https://npmjs.com) - Dependency Management
+- [Express](https://www.npmjs.com/package/express) - Web framework for Node.js 
+- [Mongoose](https://www.npmjs.com/package/mongoose) - ORM for MongoDB
+- [Axios](https://www.npmjs.com/package/axios) - For asynchronous API calls
+- [socket.io](https://socket.io/) - Notifications API
+- [MongoDB](https://www.mongodb.com/) - NoSQL database
+- [React](https://www.reactjs.org) - Front end library
+- [Material UI](https://material-ui.com/) - Material Design UI Framework for React
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom) - For SPA routing
+
+## Author
+
+- **Will Parks** - *Full Stack* - [wparks08](https://www.github.com/wparks08)
