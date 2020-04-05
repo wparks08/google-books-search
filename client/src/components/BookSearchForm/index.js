@@ -7,8 +7,6 @@ import Input from "@material-ui/core/Input";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import FormGroup from "@material-ui/core/FormGroup";
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
 import { Select } from "@material-ui/core";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -35,7 +33,7 @@ function BookSearchForm(props) {
         <Grid container>
             <Grid item xs={12}>
                 <Paper elevation={1} className={classes.formWrapper}>
-                    <form autoComplete="off" className={classes.form} onSubmit={props.handleSubmit}>
+                    <form autoComplete="off" className={classes.form}>
                         <FormGroup>
                             <FormControl fullWidth>
                                 <Grid container>
@@ -48,11 +46,7 @@ function BookSearchForm(props) {
                                             onChange={props.handleInputChange}
                                         />
                                     </Grid>
-                                    <Grid item xs={1} className={classes.centerText}>
-                                        <IconButton color="primary" type="submit">
-                                            <SearchIcon />
-                                        </IconButton>
-                                    </Grid>
+                                    <Grid item xs={1} />
                                     <Grid item xs={1}>
                                         <FormControl fullWidth>
                                             <Select value={props.max} onChange={props.handleMaxChange}>
@@ -78,7 +72,6 @@ BookSearchForm.propTypes = {
     query: PropTypes.string,
     max: PropTypes.number,
     handleInputChange: PropTypes.func,
-    handleSubmit: PropTypes.func,
     handleMaxChange: PropTypes.func
 };
 
