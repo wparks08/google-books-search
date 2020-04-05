@@ -32,8 +32,6 @@ function Book(props) {
     const [saved, setSaved] = useState(props.saved || false);
 
     useEffect(() => {
-        console.log("rendered");
-
         const checkBookAlreadySaved = () => {
             return new Promise((resolve, reject) => {
                 API.findAll()
