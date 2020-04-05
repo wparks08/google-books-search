@@ -12,7 +12,6 @@ function BookSearch() {
     const [max, setMax] = useState(10);
 
     const search = useCallback(() => {
-        console.log("searching");
         let offset = page * max - max;
         API.search(query, max, offset).then(data => {
             setResults(data.books);

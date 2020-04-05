@@ -32,11 +32,32 @@ function Book(props) {
     const [saved, setSaved] = useState(props.saved || false);
 
     useEffect(() => {
+        console.log("rendered");
+
+        const checkBookAlreadySaved = () => {
+            return new Promise((resolve, reject) => {
+                API.findAll()
+                    .then(savedBooks => {
+                        savedBooks.forEach(savedBook => {
+                            if (savedBook.link === book.link) {
+                                resolve({ saved: true, id: savedBook._id });
+                            }
+                        });
+                        resolve({ saved: false, id: "" });
+                    })
+                    .catch(err => {
+                        reject(err);
+                    });
+            });
+        };
+
         checkBookAlreadySaved().then(result => {
             setSaved(result.saved);
-            setBook({ ...book, id: result.id });
+            setBook(b => {
+                return { ...b, id: result.id };
+            });
         });
-    }, []);
+    }, [book.link]);
 
     const saveBook = () => {
         API.save(book)
@@ -57,23 +78,6 @@ function Book(props) {
             .catch(err => {
                 console.log(err);
             });
-    };
-
-    const checkBookAlreadySaved = () => {
-        return new Promise((resolve, reject) => {
-            API.findAll()
-                .then(savedBooks => {
-                    savedBooks.forEach(savedBook => {
-                        if (savedBook.link === book.link) {
-                            resolve({ saved: true, id: savedBook._id });
-                        }
-                    });
-                    resolve({ saved: false, id: "" });
-                })
-                .catch(err => {
-                    reject(err);
-                });
-        });
     };
 
     return (
